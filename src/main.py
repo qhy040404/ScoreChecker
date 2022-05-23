@@ -50,8 +50,8 @@ def send_email():
 
 
 def get_score():
-    originalData = s.get(scoreUrl)
-    print(notify[0])
+    originalData = s.get(scoreUrl).text
+    print(notify[0] + notify[1] + notify[2] + notify[3])
     if notify in originalData:
         print("Detected.")
         send_email()
@@ -59,18 +59,18 @@ def get_score():
         print("Still alive!")
 
 
-def get_solution():
-    originalData = s.get(solutionUrl)
-    if notify in originalData:
-        print("Detected.")
-        send_email()
-    else:
-        print("Still alive!")
+# def get_solution():
+#     originalData = s.get(solutionUrl).text
+#     if notify in originalData:
+#         print("Detected.")
+#         send_email()
+#     else:
+#         print("Still alive!")
 
 
 def main():
     get_score()
-    get_solution()
+#    get_solution()
 
 
 if __name__ == "__main__":
