@@ -12,12 +12,8 @@ mailPass = os.getenv("MAIL_PASS")
 notify = os.getenv("NOTIFICATION")
 notify_solution = os.getenv("NOTIFY_SOLUTION")
 
-scoreUrl = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
-solutionUrl = "http://jxgl.dlut.edu.cn/student/for-std/program-completion-preview"
-
-if solutionId is not None:
-    scoreUrl += "/info/" + solutionId + "?semester="
-    solutionUrl += "/info/" + solutionId
+scoreUrl = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/" + solutionId + "?semester="
+solutionUrl = "http://jxgl.dlut.edu.cn/student/for-std/program-completion-preview/info/" + solutionId
 
 s = sso.login(userid, passwd)
 
