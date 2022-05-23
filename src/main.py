@@ -10,6 +10,7 @@ solutionId = os.getenv("SID")
 mailId = os.getenv("MAIL_ID")
 mailPass = os.getenv("MAIL_PASS")
 notify = os.getenv("NOTIFICATION")
+notify_solution = os.getenv("NOTIFY_SOLUTION")
 
 scoreUrl = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet"
 solutionUrl = "http://jxgl.dlut.edu.cn/student/for-std/program-completion-preview"
@@ -59,18 +60,18 @@ def get_score():
         print("Still alive!")
 
 
-# def get_solution():
-#     originalData = s.get(solutionUrl).text
-#     if notify in originalData:
-#         print("Detected.")
-#         send_email()
-#     else:
-#         print("Still alive!")
+def get_solution():
+    originalData = s.get(solutionUrl).text
+    if notify_solution in originalData:
+        print("Detected.")
+        send_email()
+    else:
+        print("Still alive!")
 
 
 def main():
     get_score()
-#    get_solution()
+    get_solution()
 
 
 if __name__ == "__main__":
