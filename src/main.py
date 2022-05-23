@@ -59,7 +59,7 @@ def get_score():
 
 def get_solution():
     originalData = s.get(solutionUrl).text
-    if notify_solution or notify_solution_failed in originalData:
+    if notify_solution in originalData or notify_solution_failed in originalData:
         print("Detected.")
         send_email()
     else:
