@@ -42,3 +42,4 @@ jobs:
         MAIL_ID: ${{ secrets.MAIL_ID }}
         MAIL_PASS: ${{ secrets.MAIL_PASS }}
         NOTIFICATION: ${{ secrets.NOTIFICATION }}
+        NOTIFY_SOLUTION: ${{ secrets.NOTIFY_SOLUTION }}
