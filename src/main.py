@@ -11,6 +11,7 @@ mailId = os.getenv("MAIL_ID")
 mailPass = os.getenv("MAIL_PASS")
 notify = os.getenv("NOTIFICATION")
 notify_solution = os.getenv("NOTIFY_SOLUTION")
+notify_solution_failed = os.getenv("NOTIFY_SOLUTION_FAILED")
 
 scoreUrl = "http://jxgl.dlut.edu.cn/student/for-std/grade/sheet/info/" + solutionId + "?semester="
 solutionUrl = "http://jxgl.dlut.edu.cn/student/for-std/program-completion-preview/info/" + solutionId
@@ -58,7 +59,7 @@ def get_score():
 
 def get_solution():
     originalData = s.get(solutionUrl).text
-    if notify_solution in originalData:
+    if notify_solution or notify_solution_failed in originalData:
         print("Detected.")
         send_email()
     else:
