@@ -51,7 +51,7 @@ def send_email():
 
 def get_score():
     originalData = s.get(scoreUrl)
-    print(notify)
+    print(notify[0])
     if notify in originalData:
         print("Detected.")
         send_email()
