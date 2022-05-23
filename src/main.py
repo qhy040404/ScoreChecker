@@ -52,13 +52,19 @@ def send_email():
 def get_score():
     originalData = s.get(scoreUrl)
     if notify in originalData:
+        print("Detected.")
         send_email()
+    else:
+        print("Still alive!")
 
 
 def get_solution():
     originalData = s.get(solutionUrl)
     if notify in originalData:
+        print("Detected.")
         send_email()
+    else:
+        print("Still alive!")
 
 
 def main():
