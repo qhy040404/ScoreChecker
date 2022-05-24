@@ -19,7 +19,7 @@ solutionUrl = "http://jxgl.dlut.edu.cn/student/for-std/program-completion-previe
 s = sso.login(userid, passwd)
 
 
-def send_email():
+def send_email(result):
     mail_user = mailId
     mail_pass = mailPass
     sender = mailId
@@ -30,7 +30,7 @@ def send_email():
 
     print('Sending email...')
 
-    context = notify + "出了，焯"
+    context = notify + "出了，焯\n" + result
 
     message = MIMEText(context, 'plain', 'utf-8')
     message['Subject'] = '死亡降临'
@@ -52,16 +52,19 @@ def get_score():
     print(notify[0] + notify[1] + notify[2] + notify[3])
     if notify in originalData:
         print("Detected.")
-        send_email()
+        send_email("下一封才刺激doge")
     else:
         print("Still alive!")
 
 
 def get_solution():
     originalData = s.get(solutionUrl).text
-    if notify_solution in originalData or notify_solution_failed in originalData:
-        print("Detected.")
-        send_email()
+    if notify_solution in originalData :
+        print("Yeah!!!")
+        send_email("过了哈哈哈哈哈哈")
+    elif notify_solution_failed in originalData:
+        print("芭比Q了")
+        send_email("芭比Q了")
     else:
         print("Still alive!")
 
