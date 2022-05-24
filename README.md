@@ -1,5 +1,7 @@
 # Score Checker
 
+## 先[Fork](https://github.com/qhy040404/ScoreChecker/fork)!!!
+
 ### 设置以下`secrets`
 - `ID`
 - `PASSWD`
@@ -21,4 +23,3 @@
 - 需要提示的学科在解决方案`html`中的部分源码（失败）
 
 ## 建议开个`issue`我教你搞
-#### 先`fork`嗷
