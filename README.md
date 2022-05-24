@@ -8,6 +8,7 @@
 - `MAIL_PASS`
 - `NOFITICATION`
 - `NOTIFY_SOLUTION`
+- `NOTIFY_SOLUTION_FAILED`
 
 ### 依次对应
 - 学号
@@ -16,7 +17,8 @@
 - 邮箱
 - 邮箱授权码
 - 需要提示的学科（全称）
-- 需要提示的学科在解决方案`html`中的部分源码
+- 需要提示的学科在解决方案`html`中的部分源码（成功）
+- 需要提示的学科在解决方案`html`中的部分源码（失败）
 
 ## 建议开个`issue`我教你搞
 #### 先`fork`嗷
