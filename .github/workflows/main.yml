@@ -50,6 +50,7 @@ jobs:
 
     - name: Commit
       shell: sh
+      continue-on-error: true
       run: |
         git add .
         git commit -m "Pause workflow"
