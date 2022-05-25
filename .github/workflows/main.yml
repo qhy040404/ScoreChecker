@@ -50,8 +50,13 @@ jobs:
 
     - name: Commit
       shell: sh
-      continue-on-error: true
       run: |
+        set -eu
+        
         git add .
-        git commit -m "Pause workflow"
+        
+        if ! git diff --cached --quiet; then
+            git commit -m "Pause workflow"
+        fi
+        
         git push
