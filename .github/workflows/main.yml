@@ -44,3 +44,13 @@ jobs:
         NOTIFICATION: ${{ secrets.NOTIFICATION }}
         NOTIFY_SOLUTION: ${{ secrets.NOTIFY_SOLUTION }}
         NOTIFY_SOLUTION_FAILED: ${{ secrets.NOTIFY_SOLUTION_FAILED }}
+
+    - name: Git as GitHub Actions Bot
+      uses: Lucky3028/git-as-gha@v1.0.0
+
+    - name: Commit
+      shell: sh
+      run: |
+        git add .
+        git commit -m "Pause workflow"
+        git push
