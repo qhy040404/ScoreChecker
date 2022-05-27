@@ -53,7 +53,7 @@ def get_score():
     if notify in originalData:
         print("Detected.")
         send_email("下一封才刺激doge")
-        os.system("mv ./github/workflows/main.yml ./github/workflows/main.yml.bak")
+        os.system("mv ../.github/workflows/main.yml ../.github/workflows/main.yml.bak")
     else:
         print("Still alive!")
 
