@@ -54,9 +54,11 @@ def get_score():
 def main():
     current = open("current.txt", "r+")
     a = current.read()
-    print(a)
 
     new = get_score()
+
+    print(a)
+    print(new)
 
     if new > int(a):
         current.write(str(new))
