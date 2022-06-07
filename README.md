@@ -3,6 +3,7 @@
 ## 先[Fork](https://github.com/qhy040404/ScoreChecker/fork)!!!
 
 ### 设置以下`secrets`
+
 - `ID`
 - `PASSWD`
 - `SID`
@@ -13,6 +14,7 @@
 - `NOTIFY_SOLUTION_FAILED`
 
 ### 依次对应
+
 - 学号
 - 密码
 - 教管系统内编号（可在进入任意一个页面后在网址中找到）

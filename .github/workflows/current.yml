@@ -14,56 +14,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3.0.2
-      with:
-        token: ${{ secrets.SCORECHECKER_WORKFLOW_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          token: ${{ secrets.SCORECHECKER_WORKFLOW_TOKEN }}
 
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-        architecture: 'x64'
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          architecture: 'x64'
 
-    - name: Verify Python
-      run: python3 --version
+      - name: Verify Python
+        run: python3 --version
 
-    - name: Install requirements
-      run: |
-        python3 -m pip install --upgrade pip setuptools wheel
-        python3 -m pip install -r requirements.txt
+      - name: Install requirements
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel
+          python3 -m pip install -r requirements.txt
 
-    - name: Check
-      run: |
-        cd src
-        python3 new.py
-      env:
-        ID: ${{ secrets.ID }}
-        PASSWD: ${{ secrets.PASSWD }}
-        SID: ${{ secrets.SID }}
-        MAIL_ID: ${{ secrets.MAIL_ID }}
-        MAIL_PASS: ${{ secrets.MAIL_PASS }}
-        SEMESTER: ${{ secrets.SEMESTER }}
-        NOTIFICATION: ${{ secrets.NOTIFICATION }}
-        NOTIFY_SOLUTION: ${{ secrets.NOTIFY_SOLUTION }}
-        NOTIFY_SOLUTION_FAILED: ${{ secrets.NOTIFY_SOLUTION_FAILED }}
+      - name: Check
+        run: |
+          cd src
+          python3 new.py
+        env:
+          ID: ${{ secrets.ID }}
+          PASSWD: ${{ secrets.PASSWD }}
+          SID: ${{ secrets.SID }}
+          MAIL_ID: ${{ secrets.MAIL_ID }}
+          MAIL_PASS: ${{ secrets.MAIL_PASS }}
+          SEMESTER: ${{ secrets.SEMESTER }}
+          NOTIFICATION: ${{ secrets.NOTIFICATION }}
+          NOTIFY_SOLUTION: ${{ secrets.NOTIFY_SOLUTION }}
+          NOTIFY_SOLUTION_FAILED: ${{ secrets.NOTIFY_SOLUTION_FAILED }}
 
-    - name: Commit
-      shell: sh
-      run: |
-        set -eu
-        
-        git config user.email "45379733+qhy040404@users.noreply.github.com"
-        git config user.name "qhy040404"
-        
-        git add .
-        
-        if ! git diff --cached --quiet; then
-            git commit -m "Pause workflow"
-        fi
-        
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.SCORECHECKER_WORKFLOW_TOKEN }}
-        branch: ${{ github.ref }}
+      - name: Commit
+        shell: sh
+        run: |
+          set -eu
+          
+          git config user.email "45379733+qhy040404@users.noreply.github.com"
+          git config user.name "qhy040404"
+          
+          git add .
+          
+          if ! git diff --cached --quiet; then
+              git commit -m "Pause workflow"
+          fi
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.SCORECHECKER_WORKFLOW_TOKEN }}
+          branch: ${{ github.ref }}
