@@ -52,8 +52,8 @@ def get_score():
 
 
 def main():
-    current = open("current.txt", "r+")
-    a = current.read()
+    with open("current.txt", "r") as current:
+        a = current.read()
 
     new = get_score()
 
@@ -61,8 +61,9 @@ def main():
     print(new)
 
     if new > int(a):
-        current.write(str(new))
-    current.close()
+        with open("current.txt", "w") as current:
+            current.write(str(new))
+        send_email()
 
 
 if __name__ == "__main__":
