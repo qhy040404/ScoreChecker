@@ -12,6 +12,7 @@
 - `NOFITICATION`
 - `NOTIFY_SOLUTION`
 - `NOTIFY_SOLUTION_FAILED`
+- `SEMESTER`
 
 ### 依次对应
 
@@ -23,5 +24,6 @@
 - 需要提示的学科（全称）
 - 需要提示的学科在解决方案`html`中的部分源码（成功）
 - 需要提示的学科在解决方案`html`中的部分源码（失败）
+- 学期代码
 
 ## 建议开个`issue`我教你搞
