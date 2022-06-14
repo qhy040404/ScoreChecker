@@ -59,7 +59,7 @@ jobs:
           git add .
           
           if ! git diff --cached --quiet; then
-              git commit -m "Pause workflow"
+              git commit -m "Update Current"
           fi
 
       - name: Push changes
