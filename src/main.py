@@ -49,7 +49,6 @@ def send_email(result):
 
 def get_score():
     originalData = s.get(scoreUrl).text
-    print(notify[0] + notify[1] + notify[2] + notify[3])
     if notify in originalData:
         print("Detected.")
         send_email("下一封才刺激doge")
@@ -61,8 +60,9 @@ def get_score():
 def get_solution():
     originalData = s.get(solutionUrl).text
     if notify_solution in originalData:
+        print(originalData.split(notify_solution)[1].split("'nameEn':'Linear Algebra A'")[0])
         print("Yeah!!!")
-        send_email("过了哈哈哈哈哈哈")
+        send_email(f"过了哈哈哈哈哈哈\n{originalData.split(notify_solution)[1].split("'nameEn':'Linear Algebra A'")[0]}")
     elif notify_solution_failed in originalData:
         print("芭比Q了")
         send_email("芭比Q了")
