@@ -60,9 +60,10 @@ def get_score():
 def get_solution():
     originalData = s.get(solutionUrl).text
     if notify_solution in originalData:
-        print(originalData.split(notify_solution)[1].split("'nameEn':'Linear Algebra A'")[0])
+        resp = originalData.split(notify_solution)[1].split("'nameEn':'Linear Algebra A'")[0]
+        print(resp)
         print("Yeah!!!")
-        send_email(f'过了哈哈哈哈哈哈\n{originalData.split(notify_solution)[1].split("\'nameEn\':\'Linear Algebra A\'")[0]}')
+        send_email(f'过了哈哈哈哈哈哈\n{resp}')
     elif notify_solution_failed in originalData:
         print("芭比Q了")
         send_email("芭比Q了")
